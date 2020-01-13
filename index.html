@@ -12,12 +12,24 @@
 body {
   margin: 0;
   font-family: Arial;
-  background-color: #f2f2f7;
-  background-size: 600%,600%;
-  background-image: linear-gradient(-60deg, #fbd3c4,#fab3ba,#dbaab8,#b1cfe9);
+  background-color: #eeeff1;
+  /* background-size: 600%,600%;
+  background-image: linear-gradient(-60deg, #e7eaf0);
   position: relative;
-  animation: change 30s ease-in-out infinite;
+  animation: change 30s ease-in-out infinite; */
   height: 100%;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fadeLogo{
+  animation: transitionIn 2s;
 }
 
 @keyframes change {
@@ -31,6 +43,17 @@ body {
     background-position: 0% 50%;
   }
 }
+
+@keyframes transitionIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
 </style>
 <body>
+  <img src="images/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 </body>
