@@ -53,7 +53,7 @@ img{
   }
 }
 
-.css-slideshow{
+/*.css-slideshow{
   position: relative;
   max-width: 495px;
   height: 370px;
@@ -152,38 +152,49 @@ figure:nth-child(8) {
   100% {
     opacity:1;
   }
+}*/
+
+#cf2 {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+}
+#cf2 img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#cf2 img.transparent {
+  opacity:0;
+}
+
+#cf_onclick {
+  cursor:pointer;
 }
 
 </style>
+
 <body>
   <img src="images/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
-
-<div class="css-slideshow">
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-css3.jpg" alt="class-header-css3" width="495" height="370" class="alignnone size-full wp-image-172" />
-	</figure>
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-semantics.jpg" alt="class-header-semantics" width="495" height="370" class="alignnone size-full wp-image-179" />
-	</figure>
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-offline.jpg" alt="class-header-offline" width="495" height="370" class="alignnone size-large wp-image-178" /> 
-	</figure>
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-device.jpg" alt="class-header-device" width="495" height="370" class="alignnone size-full wp-image-177" />
-	</figure>
-<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-connectivity.jpg" alt="class-header-connectivity" width="495" height="370" class="alignnone size-large wp-image-176" />
-	</figure>
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-multimedia.jpg" alt="class-header-multimedia" width="495" height="370" class="alignnone size-large wp-image-175" />
-	</figure>
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-3d.jpg" alt="class-header-3d" width="495" height="370" class="alignnone size-large wp-image-174" />
-	</figure>
-	<figure>
-		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-performance.jpg" alt="class-header-performance" width="495" height="370" class="alignnone size-large wp-image-173" />
-	</figure>
+  <div id="cf2" class="shadow">
+    <img class="bottom" src="/images/Cirques.jpg" />
+    <img class="top" src="/images/Clown%20Fish.jpg" />
   </div>
+
+  <script>
+
+  	$(document).ready(function() {
+	  $("#cf_onclick").click(function() {
+	  $("#cf2 img.top").toggleClass("transparent");
+	});
+	});
+
+  </script>
 
 </body>
