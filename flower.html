@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: #eeeff1;
+  /* background-size: 600%,600%;
+  background-image: linear-gradient(-60deg, #e7eaf0);
+  position: relative;
+  animation: change 30s ease-in-out infinite; */
+  height: 100%;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fadeLogo{
+  animation: transitionIn 2s;
+}
+
+@keyframes change {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes transitionIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.css-slideshow{
+  position: relative;
+  max-width: 495px;
+  height: 370px;
+  margin: 5em auto .5em auto;
+}
+
+.css-slideshow figure{
+  margin: 0;
+  max-width: 495px;
+  height: 370px;
+  background: #000;
+  position: absolute;
+}
+
+.css-slideshow img{
+  box-shadow: 0 0 2px #666;
+}
+
+.css-slideshow figcaption{
+  position: absolute;
+  top: 0;
+  color: #fff;
+  background: rgba(0,0,0, .3);
+  font-size: .8em;
+  padding: 8px 12px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.css-slideshow:hover figure figcaption{
+  transition: opacity .5s;
+  opacity: 1;
+}
+
+.css-slideshow-attr{
+  max-width: 495px;
+  text-align: right;
+  font-size: .7em;
+  font-style: italic;
+  margin:0 auto;
+}
+
+.css-slideshow-attr a{
+  color: #666;
+}
+
+.css-slideshow figure{
+  opacity:0;
+}
+
+figure:nth-child(1) {
+  animation: xfade 48s 42s infinite;
+}
+
+figure:nth-child(2) {
+  animation: xfade 48s 36s infinite;
+}
+
+figure:nth-child(3) {
+  animation: xfade 48s 30s infinite;
+}
+
+figure:nth-child(4) {
+  animation: xfade 48s 24s infinite;
+}
+
+figure:nth-child(5) {
+  animation: xfade 48s 18s infinite;
+}
+
+figure:nth-child(6) {
+  animation: xfade 48s 12s infinite;
+}
+
+figure:nth-child(7) {
+  animation: xfade 48s 6s infinite;
+}
+
+figure:nth-child(8) {
+  animation: xfade 48s 0s infinite;
+}
+
+@keyframes xfade{
+  0%{
+    opacity: 1;
+  }
+  14.67% {
+    opacity:1;
+  }
+  16.67%{
+    opacity: 0;
+  }
+  98% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+</style>
+<body>
+  <img src="images/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+
+
+<div class="css-slideshow">
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-css3.jpg" alt="class-header-css3" width="495" height="370" class="alignnone size-full wp-image-172" />
+	</figure>
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-semantics.jpg" alt="class-header-semantics" width="495" height="370" class="alignnone size-full wp-image-179" />
+	</figure>
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-offline.jpg" alt="class-header-offline" width="495" height="370" class="alignnone size-large wp-image-178" /> 
+	</figure>
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-device.jpg" alt="class-header-device" width="495" height="370" class="alignnone size-full wp-image-177" />
+	</figure>
+<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-connectivity.jpg" alt="class-header-connectivity" width="495" height="370" class="alignnone size-large wp-image-176" />
+	</figure>
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-multimedia.jpg" alt="class-header-multimedia" width="495" height="370" class="alignnone size-large wp-image-175" />
+	</figure>
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-3d.jpg" alt="class-header-3d" width="495" height="370" class="alignnone size-large wp-image-174" />
+	</figure>
+	<figure>
+		<img src="http://themarklee.com/wp-content/uploads/2013/10/class-header-performance.jpg" alt="class-header-performance" width="495" height="370" class="alignnone size-large wp-image-173" />
+	</figure>
+  </div>
+
+</body>
