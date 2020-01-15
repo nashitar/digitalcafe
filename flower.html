@@ -60,7 +60,9 @@ img{
   }
 }
 
-/*.css-slideshow{
+/* VERSION 1 *****************************************************************************************************************************
+
+.css-slideshow{
   position: relative;
   max-width: 495px;
   height: 370px;
@@ -159,7 +161,9 @@ figure:nth-child(8) {
   100% {
     opacity:1;
   }
-}*/
+} 
+
+**************************************************************************************************************************************/
 
 #images {
   position:relative;
@@ -184,30 +188,39 @@ figure:nth-child(8) {
   cursor:pointer;
 }
 
-
 </style>
 
 <body>
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
-	
+
   <div id="images">
     <img class="one" src="images/flower/1.JPG" width=100%/> 
     <img class="two" src="images/flower/2.JPG" width= 100%/>
 
   </div>
 
-  <p id="one_onclick"> <br>  <br>  <br>  <br>  <br>  <br>  <br>  </p>
+  <p id="one_onclick"> 
+
+    <br>  <br>  <br>  
+    <br>  <br>  <br>  
+    <br>  <br>  <br>  
+    <br>  <br>  <br>  
+    <br>  <br>  <br>  
+    <br>  <br>  <br>  
+    <br>  <br>  <br>  
+    
+  </p> 
 
   <script>
 
-  	$(document).ready(function() {
+    	$(document).ready(function() {
+    	  $("#images img.one").toggleClass("transparent");
+  	  $("#one_onclick").click(function() {
   	  $("#images img.one").toggleClass("transparent");
-	  $("#one_onclick").click(function() {
-	  $("#images img.one").toggleClass("transparent");
-	  $("#images img.two").toggleClass("transparent");
-	});
+  	  $("#images img.two").toggleClass("transparent");
+  	});
 
-	});
+  	});
 
   </script>
 
