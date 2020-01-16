@@ -165,7 +165,7 @@ figure:nth-child(8) {
   100% {
     opacity:1;
   }
-} 
+}
 
 **************************************************************************************************************************************/
 
@@ -455,10 +455,10 @@ body.open,body:after{
   <!-- Navigation -->
   <div class="b-nav">
 
-    <li><a class="b-link b-link--active" href="#">sam & nashita's digital cafe</a></li>
-    <li><a class="b-link" href="#">water the flowers</a></li>
-    <li><a class="b-link" href="#">pet lily and tucker</a></li>
-    <li><a class="b-link" href="#">tile game</a></li>
+    <li><a class="b-link b-link--active" href="index.html">sam & nashita's digital cafe</a></li>
+    <li><a class="b-link" href="flower.html">water the flowers</a></li>
+    <li><a class="b-link" href="pet.html">pet lily and tucker</a></li>
+    <li><a class="b-link" href="tile.html">tile game</a></li>
 
   </div>
 
@@ -483,19 +483,50 @@ body.open,body:after{
 
   </div>
 
-  <p id="one_onclick"> 
+  <p id="one_onclick">
 
-    <br>  <br>  <br>  
-    <br>  <br>  <br>  
-    <br>  <br>  <br>  
-    <br>  <br>  <br>  
-    <br>  <br>  <br>  
-    <br>  <br>  <br>  
-    <br>  <br>  <br>  
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
 
-  </p> 
+  </p>
 
   <script>
+
+  var flowers = [];
+  var intFlower;
+
+  function startGame(){
+    intFlower = 0;
+    flowers = [];
+    // Randomly pick flowers
+    // Assign to array
+    // displayFlower();
+    // Make cursor gif
+  }
+
+  function displayFlower(){
+    // Remove current flower (dissolve?)
+
+    if(intFlower = 5)
+    {
+      endGame();
+    }
+    else{
+      // ... (crossfade)
+    }
+  }
+
+  function endGame(){
+    // Congrats!
+    // Start again button
+    // Cursor returns to normal
+    // confetti?
+  }
 
     $(document).ready(function() {
   	  $("#one_onclick").click(function() {
