@@ -287,7 +287,7 @@ body.open,body:after{
     }
 
     body.open:after{
-      opacity:1;
+      opacity:0.93;
       visibility:visible;
     }
 
@@ -354,8 +354,8 @@ body.open,body:after{
     }
 
     .b-menu{
-      background:#000000;
-      border:2px solid #000000;
+      background:#111111;
+      border:2px solid #111111;
       border-radius:50%;
       cursor:pointer;
       display:inline-block;
@@ -418,7 +418,7 @@ body.open,body:after{
     }
 
     .b-container:hover:not(.open) .bun-bottom,.b-container:hover:not(.open) .bun-mid,.b-container:hover:not(.open) .bun-top{
-      background:#000000;
+      background: #000000;
     }
 
     .b-container.open .b-bun--top{
@@ -532,12 +532,12 @@ body.open,body:after{
 /* CURSOR IMAGE JAVASCRIPT CODE *************************************************************************************************************/
 
 	window.addEventListener("load", init);
-	 
+
 	function init() {
 	  const img = document.querySelector("img");
 	  const {width} = img.getBoundingClientRect();
 	  const halfImgWidth = width / 2;
-	 
+
 	  img.addEventListener("mousemove", function(e) {
 	    const xPos = e.pageX - img.offsetLeft;
 	    this.classList.remove("custom");
