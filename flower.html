@@ -424,21 +424,26 @@ body.open,body:after{
     .b-container.open .b-bun--top{
       background:#fff
       top:9px;
-      -webkit-transform:rotate(45deg);
+      opacity:0;
+      /*-webkit-transform:rotate(45deg);
       -ms-transform:rotate(45deg);
-      transform:rotate(45deg);
+      transform:rotate(45deg);*/
     }
 
     .b-container.open .b-bun--mid{
-      opacity:0;
+      opacity:1;
+      -webkit-transform:rotate(-45deg); 
+      -ms-transform:rotate(-45deg);
+      transform:rotate(-45deg);
     }
 
     .b-container.open .b-bun--bottom{
       background:#fff;
       top:5px;
-      -webkit-transform:rotate(-45deg);
-      -ms-transform:rotate(-45deg);
-      transform:rotate(-45deg);
+      /*opacity:0;*/
+      -webkit-transform:rotate(45deg);
+      -ms-transform:rotate(45deg);
+      transform:rotate(45deg);*/
     }
 
     .b-container.open .b-brand{
