@@ -29,7 +29,8 @@ img{
 }
 
 .custom {
-  cursor:url(images/logo/purple.png), auto;
+  cursor: url(cursor-prev.cur), auto; /*IE & Edge*/
+  cursor: url("images/logo/purple.png") 16 16, auto; /*Rest browsers*/
 }
 
 .center {
@@ -479,21 +480,11 @@ body.open,body:after{
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
   <div id="images">
-    <img class="two" src="images/flower/2.JPG" width= 100%/>
+    <img class="two" id="one_onclick" src="images/flower/2.JPG" width= 100%/>
 
   </div>
 
-  <p id="one_onclick">
-
-    <br>  <br>  <br>
-    <br>  <br>  <br>
-    <br>  <br>  <br>
-    <br>  <br>  <br>
-    <br>  <br>  <br>
-    <br>  <br>  <br>
-    <br>  <br>  <br>
-
-  </p>
+  <img src="images/logo/purple.png" alt="">
 
   <script>
 
@@ -537,6 +528,28 @@ body.open,body:after{
         $});
   	  $});
     $});
+
+/* CURSOR IMAGE JAVASCRIPT CODE *************************************************************************************************************/
+
+	window.addEventListener("load", init);
+	 
+	function init() {
+	  const img = document.querySelector("img");
+	  const {width} = img.getBoundingClientRect();
+	  const halfImgWidth = width / 2;
+	 
+	  img.addEventListener("mousemove", function(e) {
+	    const xPos = e.pageX - img.offsetLeft;
+	    this.classList.remove("custom");
+	    if (xPos > halfImgWidth) {
+	      this.classList.add("custom");
+	    } else {
+	      this.classList.add("custom");
+	    }
+	  });
+	}
+
+/*************************************************************************************************************************************/
 
 /* NAVBAR JAVASCRIPT CODE *************************************************************************************************************/
 
