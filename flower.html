@@ -29,8 +29,7 @@ img{
 }
 
 .custom {
-  cursor: url(cursor-prev.cur), auto; /*IE & Edge*/
-  cursor: url("images/logo/purple.png") 16 16, auto; /*Rest browsers*/
+  cursor:url(images/logo/purple.png), auto;
 }
 
 .center {
@@ -166,7 +165,7 @@ figure:nth-child(8) {
   100% {
     opacity:1;
   }
-} 
+}
 
 **************************************************************************************************************************************/
 
@@ -456,10 +455,10 @@ body.open,body:after{
   <!-- Navigation -->
   <div class="b-nav">
 
-    <li><a class="b-link b-link--active" href="#">sam & nashita's digital cafe</a></li>
-    <li><a class="b-link" href="#">water the flowers</a></li>
-    <li><a class="b-link" href="#">pet lily and tucker</a></li>
-    <li><a class="b-link" href="#">tile game</a></li>
+    <li><a class="b-link b-link--active" href="index.html">sam & nashita's digital cafe</a></li>
+    <li><a class="b-link" href="flower.html">water the flowers</a></li>
+    <li><a class="b-link" href="pet.html">pet lily and tucker</a></li>
+    <li><a class="b-link" href="tile.html">tile game</a></li>
 
   </div>
 
@@ -480,13 +479,54 @@ body.open,body:after{
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
   <div id="images">
-    <img class="two" id="one_onclick" src="images/flower/2.JPG" width= 100%/>
+    <img class="two" src="images/flower/2.JPG" width= 100%/>
 
   </div>
 
-  <img src="images/logo/purple.png" alt="">
+  <p id="one_onclick">
+
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+    <br>  <br>  <br>
+
+  </p>
 
   <script>
+
+  var flowers = [];
+  var intFlower;
+
+  function startGame(){
+    intFlower = 0;
+    flowers = [];
+    // Randomly pick flowers
+    // Assign to array
+    // displayFlower();
+    // Make cursor gif
+  }
+
+  function displayFlower(){
+    // Remove current flower (dissolve?)
+
+    if(intFlower = 5)
+    {
+      endGame();
+    }
+    else{
+      // ... (crossfade)
+    }
+  }
+
+  function endGame(){
+    // Congrats!
+    // Start again button
+    // Cursor returns to normal
+    // confetti?
+  }
 
     $(document).ready(function() {
   	  $("#one_onclick").click(function() {
@@ -497,28 +537,6 @@ body.open,body:after{
         $});
   	  $});
     $});
-
-/* CURSOR IMAGE JAVASCRIPT CODE *************************************************************************************************************/
-
-	window.addEventListener("load", init);
-	 
-	function init() {
-	  const img = document.querySelector("img");
-	  const {width} = img.getBoundingClientRect();
-	  const halfImgWidth = width / 2;
-	 
-	  img.addEventListener("mousemove", function(e) {
-	    const xPos = e.pageX - img.offsetLeft;
-	    this.classList.remove("custom");
-	    if (xPos > halfImgWidth) {
-	      this.classList.add("custom");
-	    } else {
-	      this.classList.add("custom");
-	    }
-	  });
-	}
-
-/*************************************************************************************************************************************/
 
 /* NAVBAR JAVASCRIPT CODE *************************************************************************************************************/
 
