@@ -556,13 +556,15 @@ body.open,body:after{
   }
 
   function displayFlower(){
-    
-    document.getElementById('one_onclick').src = currentFlowers[intFlower-2];
+    intFlower = 0;
+    document.getElementById('one_onclick').src = currentFlowers[intFlower];
 
     console.log(intFlower);
     
     // Remove current flower (dissolve?)
 
+    intFlower++;
+    
     updateProgressBar();
 
     if(intFlower = 5)
@@ -573,9 +575,9 @@ body.open,body:after{
       
       // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
 
-      document.getElementById('one_onclick').src = "images/flower/1.JPG";
+      // document.getElementById('one_onclick').src = "images/flower/1.JPG";
 
-      intFlower++;
+      // intFlower++;
     }
   }
 
