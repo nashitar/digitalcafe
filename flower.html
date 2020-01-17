@@ -495,9 +495,7 @@ body.open,body:after{
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
   <div id="images">
-    <div id="playground">
-      <img class="two" id="one_onclick playground" src="images/flower/2.JPG" width= 100%/>
-    </div>
+    <img class="two" id="one_onclick" width= 100%/>
   </div>
 
 <!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
@@ -513,49 +511,53 @@ body.open,body:after{
 
   <script>
 
-  var allFlowers = ['url(images/flower/1.JPG)',
-                    'url(images/flower/2.JPG)',
-                    'url(images/flower/3.JPG)',
-                    'url(images/flower/4.JPG)',
-                    'url(images/flower/5.JPG)',
-                    'url(images/flower/6.JPG)']
+  var allFlowers = ["images/flower/1.JPG",
+                    "images/flower/2.JPG",
+                    "images/flower/3.JPG",
+                    "images/flower/4.JPG",
+                    "images/flower/5.JPG",
+                    "images/flower/6.JPG"]
 
   // var test = [1,2,3,4,5,6,7,8,9,10];
 
-  var flowers = [];
-  var intFlower;
+  var currentFlowers = [];
+  var intFlower = 0;
 
   //document load calls startGame();
   //triple click -> intFlowers++ and dislayFlower();
 
   function startGame(){
     intFlower = 0;
-    flowers = [];
+    currentFlowers = [];
     assignFlowers();
     displayFlower();
     //create progress bar;
   }
 
-  function assignFlowers(){
+  (function assignFlowers(){
     for(let i = 0; i < 5; i++)
     {
       var rnd = Math.floor(Math.random() * (allFlowers.length));
-      if(!flowers.includes(allFlowers[rnd]))
+      if(!currentFlowers.includes(allFlowers[rnd]))
       {
-        flowers.push(allFlowers[rnd]);
+        currentFlowers.push(allFlowers[rnd]);
         // console.log('1 ' + rnd);
       }
       else{
         i--;
       }
     }
-    // console.log(flowers);
-  }
+    // console.log(currentFlowers);
+    displayFlower();
+  })();
 
   function updateProgressBar(){
   }
 
   function displayFlower(){
+    
+    document.getElementById('one_onclick').src = "images/flower/1.JPG";
+    console.log(intFlower);
     // Remove current flower (dissolve?)
     updateProgressBar();
 
@@ -564,7 +566,12 @@ body.open,body:after{
       endGame();
     }
     else{
-      // ... (crossfade)
+      
+      // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
+
+      document.getElementById('one_onclick').src = "images/flower/1.JPG";
+
+      intFlower++;
     }
   }
 
@@ -574,15 +581,21 @@ body.open,body:after{
     // Queue confetti GIF?
   }
 
-    $(document).ready(function() {
-  	  $("#one_onclick").click(function() {
+  $(document).ready(function() {
+    
+    displayFlower();
+
+	  $("#one_onclick").click(function() {
+      $("#one_onclick").click(function() {
         $("#one_onclick").click(function() {
-          $("#one_onclick").click(function() {
-        	  $("#images img.two").toggleClass("transparent");
-          $});
+      	  $("#images img.two").toggleClass("transparent");
         $});
-  	  $});
-    $});
+      $});
+	  $});
+
+    displayFlower();
+
+  $});
 
 /*************************************************************************************************************************************/
 /* NAVBAR JAVASCRIPT CODE ************************************************************************************************************/
@@ -607,20 +620,20 @@ body.open,body:after{
 
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 
-  // var playground = document.querySelector("#playground");
+  var playground = document.querySelector("#playground");
 
-  // var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
-  //                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
-  //                   '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
-  // i = 0;
-  // (function cursor(){
-  //   playground.style.cursor  = cursorArray[i];
-  //   i++;
-  //   if(i == cursorArray.length){
-  //     i = 0; 
-  //   }
-  //    setTimeout(cursor, 50);
-  // })();
+  var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
+                     '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
+                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
+  i = 0;
+  (function cursor(){
+    playground.style.cursor  = cursorArray[i];
+    i++;
+    if(i == cursorArray.length){
+      i = 0; 
+    }
+     setTimeout(cursor, 50);
+  })();
 
 /*************************************************************************************************************************************/
 
