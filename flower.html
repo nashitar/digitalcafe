@@ -432,7 +432,7 @@ body.open,body:after{
 
     .b-container.open .b-bun--mid{
       opacity:1;
-      -webkit-transform:rotate(-45deg); 
+      -webkit-transform:rotate(-45deg);
       -ms-transform:rotate(-45deg);
       transform:rotate(-45deg);
     }
@@ -493,20 +493,51 @@ body.open,body:after{
 
   <script>
 
+  var allFlowers = ['url(images/flower/1.JPG)',
+                    'url(images/flower/2.JPG)',
+                    'url(images/flower/3.JPG)',
+                    'url(images/flower/4.JPG)',
+                    'url(images/flower/5.JPG)',
+                    'url(images/flower/6.JPG)']
+
+  // var test = [1,2,3,4,5,6,7,8,9,10];
+
   var flowers = [];
   var intFlower;
+
+  //document load calls startGame();
+  //triple click -> intFlowers++ and dislayFlower();
 
   function startGame(){
     intFlower = 0;
     flowers = [];
-    // Randomly pick flowers
-    // Assign to array
-    // displayFlower();
-    // Make cursor gif
+    assignFlowers();
+    displayFlower();
+    //create progress bar;
+  }
+
+  function assignFlowers(){
+    for(let i = 0; i < 5; i++)
+    {
+      var rnd = Math.floor(Math.random() * (allFlowers.length));
+      if(!flowers.includes(allFlowers[rnd]))
+      {
+        flowers.push(allFlowers[rnd]);
+        // console.log('1 ' + rnd);
+      }
+      else{
+        i--;
+      }
+    }
+    // console.log(flowers);
+  }
+
+  function updateProgressBar(){
   }
 
   function displayFlower(){
     // Remove current flower (dissolve?)
+    updateProgressBar();
 
     if(intFlower = 5)
     {
@@ -518,10 +549,9 @@ body.open,body:after{
   }
 
   function endGame(){
-    // Congrats!
-    // Start again button
-    // Cursor returns to normal
-    // confetti?
+    // Display congratulations message.
+    // Display start again text.
+    // Queue confetti GIF?
   }
 
     $(document).ready(function() {
