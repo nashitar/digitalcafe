@@ -549,6 +549,7 @@ body.open,body:after{
     }
     // console.log(currentFlowers);
     displayFlower();
+
   })();
 
   function updateProgressBar(){
@@ -556,9 +557,12 @@ body.open,body:after{
 
   function displayFlower(){
     
-    document.getElementById('one_onclick').src = "images/flower/1.JPG";
+    document.getElementById('one_onclick').src = currentFlowers[intFlower-2];
+
     console.log(intFlower);
+    
     // Remove current flower (dissolve?)
+
     updateProgressBar();
 
     if(intFlower = 5)
@@ -582,8 +586,6 @@ body.open,body:after{
   }
 
   $(document).ready(function() {
-    
-    displayFlower();
 
 	  $("#one_onclick").click(function() {
       $("#one_onclick").click(function() {
