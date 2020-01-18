@@ -69,13 +69,13 @@ img{
 /* CLICK TRIGGER / IMAGE CSS *********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-#images {
+/* #images {
   position:relative;
   height:281px;
   width:450px;
   margin:0 auto;
-}
-#images img {
+} */
+/* #images img {
   position:absolute;
   left:0;
   -webkit-transition: opacity 1s ease-in-out;
@@ -86,10 +86,31 @@ img{
 
 #images img.transparent {
   opacity:0;
-}
+} */
 
 #one_onclick {
   cursor:pointer;
+}
+
+#img2{
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.images {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+}
+
+.images img{
+  position:absolute;
+  left:0;
+
 }
 
 /*************************************************************************************************************************************/
@@ -513,6 +534,16 @@ body.open,body:after{
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
 
+  <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+
+  <!-- <div id="images">
+    <img class="two" id="one_onclick" width= 100%/>
+  </div> -->
+
+  <div class="images">
+    <img id="img1" onload="fadeImage();" width= 100%/>
+    <img id="img2" onload="fadeImage();" width= 100%/>
+  </div>
 
 <!-- **************************************************************************************************************************** -->
 <!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
@@ -540,32 +571,54 @@ body.open,body:after{
 /* FUNCTIONS *************************************************************************************************************************/
 /*************************************************************************************************************************************/
 
+
 // comment more specifically later
 
-  var allFlowers = ["images/flower/1.JPG",
-                    "images/flower/2.JPG",
-                    "images/flower/3.JPG",
-                    "images/flower/4.JPG",
-                    "images/flower/5.JPG",
-                    "images/flower/6.JPG"]
+var currentFlowers = [];
+var flowerIndex = 0;
+var imgtoggle = false;
+
+var allFlowers = ["images/flower/1.JPG",
+                  "images/flower/2.JPG",
+                  "images/flower/3.JPG",
+                  "images/flower/4.JPG",
+                  "images/flower/5.JPG",
+                  "images/flower/6.JPG"]
+
+assignFlowers();
+document.getElementById('img1').src = currentFlowers[0];
+
+// This function will initialize loading the next image in background
+function nextImage(){
+  if(flowerIndex < 4)
+  {
+    imgtoggle = !imgtoggle;
+
+    // flowerIndex = (flowerIndex + 1) % currentFlowers.length;
+    flowerIndex++;
+    console.log(flowerIndex);
+
+    if (imgtoggle)
+      document.getElementById('img2').src = currentFlowers[flowerIndex];
+    else
+      document.getElementById('img1').src = currentFlowers[flowerIndex];
+  }
+  else{
+    endGame();
+  }
+}
+
+// This function will trigger the crossfade and then start the timer for the next switch
+function fadeImage() {
+if (imgtoggle)
+  document.getElementById('img2').style.opacity = '1.0';
+else
+  document.getElementById('img2').style.opacity = '0.0';
+}
 
   // var test = [1,2,3,4,5,6,7,8,9,10];
 
-  var currentFlowers = [];
-  var intFlower = 0;
-
-  //document load calls startGame();
-  //triple click -> intFlowers++ and dislayFlower();
-
-  function startGame(){
-    intFlower = 0;
-    currentFlowers = [];
-    assignFlowers();
-    displayFlower();
-    //create progress bar;
-  }
-
-  (function assignFlowers(){
+  function assignFlowers(){
     for(let i = 0; i < 5; i++)
     {
       var rnd = Math.floor(Math.random() * (allFlowers.length));
@@ -579,43 +632,34 @@ body.open,body:after{
       }
     }
     // console.log(currentFlowers);
-    displayFlower();
-
-  })();
+  }
 
   function updateProgressBar(){
   }
 
-  function displayFlower(){
-    intFlower = 0;
-    document.getElementById('one_onclick').src = currentFlowers[intFlower];
-
-    console.log(intFlower);
-    
-    // Remove current flower (dissolve?)
-
-    intFlower++;
-
-    updateProgressBar();
-
-    if(intFlower = 5)
-    {
-      endGame();
-    }
-    else{
-      
-      // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
-
-      // document.getElementById('one_onclick').src = "images/flower/1.JPG";
-
-      // intFlower++;
-    }
-  }
+  // function displayFlower(){
+  //   console.log(flowerIndex);
+  //   // Remove current flower (dissolve?)
+  //   updateProgressBar();
+  //
+  //   if(flowerIndex == 5)
+  //   {
+  //     endGame();
+  //   }
+  //   else{
+  //     document.getElementById('one_onclick').src = currentFlowers[flowerIndex];
+  //     flowerIndex++;
+  //     // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
+  //     // document.getElementById('one_onclick').src = "images/flower/1.JPG";
+  //     // flowerIndex++;
+  //   }
+  // }
 
   function endGame(){
     // Display congratulations message.
     // Display start again text.
     // Queue confetti GIF?
+    alert("Game has ended.");
   }
 
 /*************************************************************************************************************************************/
@@ -627,19 +671,49 @@ body.open,body:after{
 /* CLICK TRIGGER *********************************************************************************************************************/
 /*************************************************************************************************************************************/
 
-  $(document).ready(function() {
+  // $(document).ready(function() {
+  //   // startGame();
+	//   // $("#one_onclick").click(function() {
+  //   //   console.log("a");
+  //   //   $("#one_onclick").click(function() {
+  //   //     console.log("b");
+  //   //     $("#one_onclick").click(function() {
+  //   //       console.log("c");
+  //   //   	  $("#images img.two").toggleClass("transparent");
+  //   //       displayFlower();
+  //   //     $});
+  //   //   $});
+	//   // $});
+  // $});
 
-	  $("#one_onclick").click(function() {
-      $("#one_onclick").click(function() {
-        $("#one_onclick").click(function() {
-      	  $("#images img.two").toggleClass("transparent");
-        $});
-      $});
-	  $});
+  //DIFFERENT VERSION
 
-    displayFlower();
+  jQuery.fn.single_double_click = function(single_click_callback, double_click_callback, timeout) {
+  return this.each(function(){
+    var clicks = 0, self = this;
+    jQuery(this).click(function(event){
+      clicks++;
+      if (clicks == 1) {
+        setTimeout(function(){
+          if(clicks == 1) {
+            single_click_callback.call(self, event);
+          } else {
+            double_click_callback.call(self, event);
+          }
+          clicks = 0;
+        }, timeout || 300);
+      }
+    });
+  });
+}
 
-  $});
+
+$(".images").single_double_click(function () {
+  alert("Single click");
+}, function () {
+  nextImage();
+})
+
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -673,21 +747,20 @@ body.open,body:after{
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-  var playground = document.querySelector("#playground");
-
-  var cursorArray = ['"images/curimages/purple-1-_dragged_.cur", auto',
-                     'images/curimages/purple-2-_dragged_.cur"), auto',
-                    'images/curimages/purple-3-_dragged_.cur"), auto',
-                    'images/curimages/purple-4-_dragged_.cur"), auto'];
-  i = 0;
-  (function cursor(){
-    playground.style.cursor  = cursorArray[i];
-    i++;
-    if(i == cursorArray.length){
-      i = 0; 
-    }
-     setTimeout(cursor, 50);
-  })();
+  // var playground = document.querySelector("#playground");
+  //
+  // var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
+  //                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
+  //                   '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
+  // i = 0;
+  // (function cursor(){
+  //   playground.style.cursor  = cursorArray[i];
+  //   i++;
+  //   if(i == cursorArray.length){
+  //     i = 0;
+  //   }
+  //    setTimeout(cursor, 50);
+  // })();
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
