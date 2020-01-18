@@ -468,10 +468,12 @@ body.open,body:after{
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-#playground {
+/*#playground {
+  border-style: solid;
+  border-width: 5px;
   width: 100%;
   height: 100px;
-}
+}*/
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -511,11 +513,6 @@ body.open,body:after{
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
 
-  <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
-
-  <div id="images">
-    <img class="two" id="one_onclick" width= 100%/>
-  </div>
 
 <!-- **************************************************************************************************************************** -->
 <!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
@@ -523,14 +520,19 @@ body.open,body:after{
 
   <!-- partial:index.partial.html -->
 
-  <!-- <h1>Hover over the div</h1>
-  <div id="playground"></div> -->
+<!--   <div id="playground"></div> -->
 
   <!-- partial -->
 
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
+
+  <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+
+  <div id="images">
+    <img class="two" id="one_onclick" width= 100%/>
+  </div>
 
   <script>
 
@@ -673,9 +675,10 @@ body.open,body:after{
 
   var playground = document.querySelector("#playground");
 
-  var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
-                     '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
-                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
+  var cursorArray = ['"images/curimages/purple-1-_dragged_.cur", auto',
+                     'images/curimages/purple-2-_dragged_.cur"), auto',
+                    'images/curimages/purple-3-_dragged_.cur"), auto',
+                    'images/curimages/purple-4-_dragged_.cur"), auto'];
   i = 0;
   (function cursor(){
     playground.style.cursor  = cursorArray[i];
