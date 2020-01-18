@@ -563,7 +563,7 @@ body.open,body:after{
     //create progress bar;
   }
 
-  (function assignFlowers(){
+  function assignFlowers(){
     for(let i = 0; i < 5; i++)
     {
       var rnd = Math.floor(Math.random() * (allFlowers.length));
@@ -577,35 +577,25 @@ body.open,body:after{
       }
     }
     // console.log(currentFlowers);
-    displayFlower();
-
-  })();
+  }
 
   function updateProgressBar(){
   }
 
   function displayFlower(){
-    intFlower = 0;
-    document.getElementById('one_onclick').src = currentFlowers[intFlower];
-
     console.log(intFlower);
-    
     // Remove current flower (dissolve?)
-
-    intFlower++;
-
     updateProgressBar();
 
-    if(intFlower = 5)
+    if(intFlower == 5)
     {
       endGame();
     }
     else{
-      
+      document.getElementById('one_onclick').src = currentFlowers[intFlower];
+      intFlower++;
       // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
-
       // document.getElementById('one_onclick').src = "images/flower/1.JPG";
-
       // intFlower++;
     }
   }
@@ -626,7 +616,7 @@ body.open,body:after{
 /*************************************************************************************************************************************/
 
   $(document).ready(function() {
-
+    startGame();
 	  $("#one_onclick").click(function() {
       $("#one_onclick").click(function() {
         $("#one_onclick").click(function() {
@@ -635,7 +625,7 @@ body.open,body:after{
       $});
 	  $});
 
-    displayFlower();
+    // displayFlower();
 
   $});
 
@@ -671,20 +661,20 @@ body.open,body:after{
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-  var playground = document.querySelector("#playground");
-
-  var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
-                     '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
-                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
-  i = 0;
-  (function cursor(){
-    playground.style.cursor  = cursorArray[i];
-    i++;
-    if(i == cursorArray.length){
-      i = 0; 
-    }
-     setTimeout(cursor, 50);
-  })();
+  // var playground = document.querySelector("#playground");
+  //
+  // var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
+  //                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
+  //                   '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
+  // i = 0;
+  // (function cursor(){
+  //   playground.style.cursor  = cursorArray[i];
+  //   i++;
+  //   if(i == cursorArray.length){
+  //     i = 0;
+  //   }
+  //    setTimeout(cursor, 50);
+  // })();
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
