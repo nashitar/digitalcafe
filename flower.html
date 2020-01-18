@@ -110,6 +110,9 @@ img{
 .images img{
   position:absolute;
   left:0;
+  border-style: solid;
+  border-color: white;
+  border-width: 7px;
 
 }
 
@@ -555,13 +558,13 @@ body.open,body:after{
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
 
-  <!--  
+  <!--
 
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
   <div id="images">
     <img class="two" id="one_onclick" width= 100%/>
-  </div> 
+  </div>
 
   -->
 
@@ -603,6 +606,7 @@ function nextImage(){
       document.getElementById('img2').src = currentFlowers[flowerIndex];
     else
       document.getElementById('img1').src = currentFlowers[flowerIndex];
+    updateProgressBar();
   }
   else{
     endGame();
