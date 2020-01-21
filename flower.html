@@ -13,6 +13,8 @@ body {
   margin: 0;
   font-family: Arial;
   background-color: #eeeff1;
+  /*background: #eee;*/
+  text-align: center;
   /* background-size: 600%,600%;
   background-image: linear-gradient(-60deg, #e7eaf0);
   position: relative;
@@ -105,6 +107,8 @@ img{
   height:281px;
   width:450px;
   margin:0 auto;
+
+  cursor: url('http://pluspng.com/img-png/watering-can-png-hd-mlp-watering-can-by-abion47-900.png') 16 16, default;
 }
 
 .images img{
@@ -114,6 +118,53 @@ img{
   border-color: white;
   border-width: 7px;
 
+}
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+/*************************************************************************************************************************************/
+/* CLICK TRIGGER / IMAGE CSS *********************************************************************************************************/
+/*************************************************************************************************************************************/
+
+h1 {
+  font-size: 1.5em;
+}
+
+form {
+  margin-top: 2em;
+}
+
+.hide {
+  position: absolute;
+  left: -10000px;
+}
+
+label {
+  display: inline-block;
+  background: gray;
+  margin: 25px;
+  position: relative;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 2px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+#mouse {
+  ~ .option-mouse {
+    cursor: "images/flower/1.JPG", auto;
+  }
+  &:checked ~ .option-mouse {
+    background: white;
+  }
 }
 
 /*************************************************************************************************************************************/
@@ -548,6 +599,8 @@ body.open,body:after{
     <img id="img1" onload="fadeImage();" width= 100%/>
     <img id="img2" onload="fadeImage();" width= 100%/>
   </div>
+
+<input class="hide" type="checkbox" name="mouse" id="mouse">
 
 <!-- **************************************************************************************************************************** -->
 <!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
