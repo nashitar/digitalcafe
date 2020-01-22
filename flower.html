@@ -535,6 +535,17 @@ body.open,body:after{
       color:#fff;
     }
 
+    #background-progress{
+      width: 100%;
+      background-color: #ddd;
+    }
+
+    #current-progress{
+      width: 1%;
+      height: 30px;
+      background-color: #4CAF50;
+    }
+
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -590,6 +601,10 @@ body.open,body:after{
 <!-- **************************************************************************************************************************** -->
 
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+
+  <div id="background-progress">
+    <div id="current-progress"></div>
+  </div>
 
   <!-- <div id="images">
     <img class="two" id="one_onclick" width= 100%/>
@@ -667,9 +682,12 @@ function nextImage(){
       document.getElementById('img2').src = currentFlowers[flowerIndex];
     else
       document.getElementById('img1').src = currentFlowers[flowerIndex];
+
     updateProgressBar();
   }
   else{
+    flowerIndex = 5;
+    updateProgressBar();
     endGame();
   }
 }
@@ -702,6 +720,7 @@ else
   }
 
   function updateProgressBar(){
+    move();
   }
 
   // function displayFlower(){
@@ -807,6 +826,33 @@ else
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
 
+
+  function move() {
+    var i = 0;
+    // console.log("test");
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("current-progress");
+      var width = elem.style.width.substring(0, elem.style.width.length - 1);
+      // console.log(width);
+
+      var id = setInterval(frame, 10);
+      // console.log("width" + width);
+
+      function frame() {
+        // console.log((flowerIndex/5)*100);
+        if (width >= (flowerIndex/5)*100) {
+
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          // console.log(width);
+          elem.style.width = width + "%";
+        }
+      }
+    }
+  }
 
 /*************************************************************************************************************************************/
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
