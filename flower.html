@@ -2,6 +2,7 @@
 <html>
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="node_modules/confetti-js/dist/index.min.js"></script>
 </head>
 <style>
 
@@ -549,6 +550,12 @@ body.open,body:after{
       background-color: #4CAF50;
     }
 
+  #my-canvas{
+    position:absolute;
+    top:0;
+    left: 0;
+  }
+
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -572,6 +579,8 @@ body.open,body:after{
 </style>
 
 <body>
+<canvas id="my-canvas"></canvas>
+
 
 <!-- **************************************************************************************************************************** -->
 <!-- NAVBAR HTML CODE *********************************************************************************************************** -->
@@ -647,6 +656,9 @@ body.open,body:after{
 /*************************************************************************************************************************************/
 
 // comment more specifically later
+
+var confettiSettings = { target: 'my-canvas' };
+var confetti = new ConfettiGenerator(confettiSettings);
 
 var currentFlowers = [];
 var flowerIndex = 0;
@@ -744,10 +756,15 @@ else
   //   }
   // }
 
+  function startGame(){
+    //working on this later
+    confetti.clear();
+  }
+
   function endGame(){
     // Display congratulations message.
     // Display start again text.
-    // Queue confetti GIF?
+    confetti.render();
     alert("Game has ended.");
   }
 
