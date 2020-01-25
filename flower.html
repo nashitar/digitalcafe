@@ -657,12 +657,13 @@ body.open,body:after{
 
 // comment more specifically later
 
-var confettiSettings = { target: 'my-canvas' };
+var confettiSettings = { target: 'my-canvas', "props":["square"], animate: true };
 var confetti = new ConfettiGenerator(confettiSettings);
 
 var currentFlowers = [];
 var flowerIndex = 0;
 var imgtoggle = false;
+var gameInProgress = false;
 
 var allFlowers = ["images/flower/1.JPG",
                   "images/flower/2.JPG",
@@ -680,6 +681,7 @@ var allFlowers = ["images/flower/1.JPG",
 
 assignFlowers();
 document.getElementById('img1').src = currentFlowers[0];
+var gameInProgress = true;
 
 // This function will initialize loading the next image in background
 
@@ -756,16 +758,23 @@ else
   //   }
   // }
 
-  function startGame(){
-    //working on this later
+  function restartGame(){
     confetti.clear();
+    assignFlowers();
+    document.getElementById('img1').src = currentFlowers[0];
+    gameInProgress = true;
+    flowerIndex = 0;
+    document.getElementById("current-progress").style.width = "1%";
+
   }
 
   function endGame(){
     // Display congratulations message.
     // Display start again text.
     confetti.render();
+    gameInProgress = false;
     alert("Game has ended.");
+
   }
 
 /*************************************************************************************************************************************/
@@ -814,7 +823,8 @@ else
   }
 
   $(".images").single_double_click(function () {
-    // alert("Single click");
+    if(gameInProgress == false)
+      restartGame();
   }, function () {
     nextImage();
   })
