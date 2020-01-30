@@ -32,8 +32,7 @@ img{
 }
 
 .custom {
-  cursor: url(cursor-prev.cur), auto; /*IE & Edge*/
-  cursor: url("~/Desktop/cafe/digitalcafe/images/logo/purple.png") 16 16, auto; /*Rest browsers*/
+  cursor: "~/Desktop/cafe/digitalcafe/images/cursor/cursor.png", auto; 
 }
 
 .center {
@@ -91,7 +90,29 @@ img{
   opacity:0;
 } */
 
+@keyframes animate{
+  0%{ 
+    cursor: url("http://jantimon.nl/running_man/running_man_1.png"), auto;
+  }
+  20%{ 
+    cursor: url("http://jantimon.nl/running_man/running_man_2.png"), auto;
+  }
+  40%{ 
+    cursor: url("http://jantimon.nl/running_man/running_man_3.png"), auto;
+  }
+  60%{ 
+    cursor: url("http://jantimon.nl/running_man/running_man_4.png"), auto;
+  }
+  80%{ 
+    cursor: url("http://jantimon.nl/running_man/running_man_5.png"), auto;
+  }
+  100%{ 
+    cursor: url("http://jantimon.nl/running_man/running_man_1.png"), auto;
+  }
+}
+
 #one_onclick {
+  cursor: "~/Desktop/cafe/digitalcafe/images/cursor/cursor.png", auto;
   cursor:pointer;
 }
 
@@ -101,6 +122,8 @@ img{
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
+
+  cursor: "~/Desktop/cafe/digitalcafe/images/cursor/cursor.png", auto;
 }
 
 .images {
@@ -109,7 +132,7 @@ img{
   width:450px;
   margin:0 auto;
 
-  cursor: url('http://pluspng.com/img-png/watering-can-png-hd-mlp-watering-can-by-abion47-900.png') 16 16, default;
+  animation: animate 0.25s infinite;
 }
 
 .images img{
@@ -565,12 +588,10 @@ body.open,body:after{
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-/*#playground {
-  border-style: solid;
-  border-width: 5px;
+#playground {
   width: 100%;
-  height: 100px;
-}*/
+  height: 100%;
+}
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -612,6 +633,7 @@ body.open,body:after{
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
 
+
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
   <div id="background-progress">
@@ -623,11 +645,17 @@ body.open,body:after{
   </div> -->
 
   <div class="images">
-    <img id="img1" onload="fadeImage();" width= 100%/>
-    <img id="img2" onload="fadeImage();" width= 100%/>
+    <div id="playground">
+      <div class="playground">
+        <img id="img1" onload="fadeImage();" width= 100%/>
+        <img id="img2" onload="fadeImage();" width= 100%/>
+      </div>
+    </div>
   </div>
 
-<input class="hide" type="checkbox" name="mouse" id="mouse">
+  <input class="hide" type="checkbox" name="mouse" id="mouse">
+
+  
 
 <!-- **************************************************************************************************************************** -->
 <!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
@@ -888,20 +916,22 @@ else
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-  // var playground = document.querySelector("#playground");
-  //
-  // var cursorArray = ['"~/Desktop/cafe/digitalcafe/images/curimages/purple.cur", auto',
-  //                    '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto',
-  //                   '~/Desktop/cafe/digitalcafe/images/curimages/purple.cur"), auto'];
-  // i = 0;
-  // (function cursor(){
-  //   playground.style.cursor  = cursorArray[i];
-  //   i++;
-  //   if(i == cursorArray.length){
-  //     i = 0;
-  //   }
-  //    setTimeout(cursor, 50);
-  // })();
+  var playground = document.querySelector("#playground");
+
+  var cursorArray = ['url(~/images/cursor/cursor.png), default',
+                     'url(~/images/cursor/cursor.png), default',
+                    'url("http://jantimon.nl/running_man/running_man_3.cur"), default',
+                    'url("http://jantimon.nl/running_man/running_man_4.cur"), auto',
+                    'url("http://jantimon.nl/running_man/running_man_5.cur", auto'];
+  i = 0;
+  (function cursor(){
+    playground.style.cursor  = cursorArray[i];
+    i++;
+    if(i == cursorArray.length){
+      i = 0; 
+    }
+     setTimeout(cursor, 50);
+  })();
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
