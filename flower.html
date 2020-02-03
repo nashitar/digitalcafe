@@ -127,6 +127,9 @@ img{
 }
 
 .images {
+
+  cursor: none;
+  
   position:relative;
   height:281px;
   width:450px;
@@ -801,7 +804,7 @@ else
     // Display start again text.
     confetti.render();
     gameInProgress = false;
-    alert("Game has ended.");
+    // alert("Game has ended.");
 
   }
 
@@ -916,22 +919,22 @@ else
 /* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
 /*************************************************************************************************************************************/
 
-  var playground = document.querySelector("#playground");
+  // var playground = document.querySelector("#playground");
 
-  var cursorArray = ['url(~/images/cursor/cursor.png), default',
-                     'url(~/images/cursor/cursor.png), default',
-                    'url("http://jantimon.nl/running_man/running_man_3.cur"), default',
-                    'url("http://jantimon.nl/running_man/running_man_4.cur"), auto',
-                    'url("http://jantimon.nl/running_man/running_man_5.cur", auto'];
-  i = 0;
-  (function cursor(){
-    playground.style.cursor  = cursorArray[i];
-    i++;
-    if(i == cursorArray.length){
-      i = 0; 
-    }
-     setTimeout(cursor, 50);
-  })();
+  // var cursorArray = ['url(~/images/cursor/cursor.png), default',
+  //                    'url(~/images/cursor/cursor.png), default',
+  //                   'url("http://jantimon.nl/running_man/running_man_3.cur"), default',
+  //                   'url("http://jantimon.nl/running_man/running_man_4.cur"), auto',
+  //                   'url("http://jantimon.nl/running_man/running_man_5.cur", auto'];
+  // i = 0;
+  // (function cursor(){
+  //   playground.style.cursor  = cursorArray[i];
+  //   i++;
+  //   if(i == cursorArray.length){
+  //     i = 0; 
+  //   }
+  //    setTimeout(cursor, 50);
+  // })();
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
