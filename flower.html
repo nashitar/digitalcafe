@@ -31,9 +31,9 @@ img{
   margin-bottom: 10px;
 }
 
-.custom {
-  cursor: "~/Desktop/cafe/digitalcafe/images/cursor/cursor.png", auto; 
-}
+/* .custom {
+  cursor: "images/cursor/cursor.png", auto;
+} */
 
 .center {
   display: block;
@@ -97,22 +97,22 @@ img{
 /*
 
 @keyframes animate{
-  0%{ 
+  0%{
     cursor: url("http://jantimon.nl/running_man/running_man_1.png"), auto;
   }
-  20%{ 
+  20%{
     cursor: url("http://jantimon.nl/running_man/running_man_2.png"), auto;
   }
-  40%{ 
+  40%{
     cursor: url("http://jantimon.nl/running_man/running_man_3.png"), auto;
   }
-  60%{ 
+  60%{
     cursor: url("http://jantimon.nl/running_man/running_man_4.png"), auto;
   }
-  80%{ 
+  80%{
     cursor: url("http://jantimon.nl/running_man/running_man_5.png"), auto;
   }
-  100%{ 
+  100%{
     cursor: url("http://jantimon.nl/running_man/running_man_1.png"), auto;
   }
 }
@@ -123,10 +123,10 @@ img{
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
 
-#one_onclick {
+/* #one_onclick {
   cursor: "~/Desktop/cafe/digitalcafe/images/cursor/cursor.png", auto;
-  cursor:pointer;
-}
+  cursor: pointer;
+} */
 
 #img2{
   opacity: 0;
@@ -147,7 +147,7 @@ img{
   width:450px;
   margin:0 auto;
 
-  animation: animate 0.25s infinite;
+  /* animation: animate 0.25s infinite; */
 }
 
 .images img{
@@ -659,7 +659,7 @@ body.open,body:after{
     <img class="two" id="one_onclick" width= 100%/>
   </div> -->
 
-  <div class="images">
+  <div class="images" onmousemove="getCoords(event)">
     <div id="playground">
       <div class="playground">
         <img id="img1" onload="fadeImage();" width= 100%/>
@@ -670,7 +670,7 @@ body.open,body:after{
 
   <input class="hide" type="checkbox" name="mouse" id="mouse">
 
-  
+
 
 <!-- **************************************************************************************************************************** -->
 <!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
@@ -820,6 +820,12 @@ else
 
   }
 
+  function getCoords(event){
+    var x = event.clientX;
+    var y = event.clientY;
+    console.log(x + " " + y);
+  }
+
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -943,7 +949,7 @@ else
   //   playground.style.cursor  = cursorArray[i];
   //   i++;
   //   if(i == cursorArray.length){
-  //     i = 0; 
+  //     i = 0;
   //   }
   //    setTimeout(cursor, 50);
   // })();
