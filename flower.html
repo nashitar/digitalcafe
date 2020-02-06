@@ -825,11 +825,11 @@ else
     var y = event.clientY;
     console.log(x + " " + y);
 
-    var cursorimg = "images/cursor/cursor.png"
+    var cursorimg = "~/images/cursor/cursor.png"
     cursorimg.height = '15px';
     cursorimg.width = '15px';
 
-    cursorimg.marginLeft = x+'px';
+    cursorimg.style.left = x+'px';
     cursorimg.marginTop = y+'px';
 
   }
