@@ -609,12 +609,13 @@ body.open,body:after{
 }
 
 #cursorimg {
-  display: none;
+  z-index:1;
+  position: relative;
 }
 
-.images:hover #cursorimg{
+/* .images:hover #cursorimg{
   display: block;
-}
+} */
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -656,8 +657,6 @@ body.open,body:after{
 <!-- **************************************************************************************************************************** -->
 <!-- **************************************************************************************************************************** -->
 
-  <img src="images/cursor/cursor.png" id="cursorimg">
-
   <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
 
   <div id="background-progress">
@@ -677,7 +676,9 @@ body.open,body:after{
     </div>
   </div>
 
-  <input class="hide" type="checkbox" name="mouse" id="mouse">
+  <!-- <input class="hide" type="checkbox" name="mouse" id="mouse"> -->
+
+  <img src="images/cursor/cursor.png" id="cursorimg" height="15" width="15">
 
 
 <!-- **************************************************************************************************************************** -->
