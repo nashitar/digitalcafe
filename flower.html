@@ -676,9 +676,9 @@ body.open,body:after{
     </div>
   </div>
 
-  <!-- <input class="hide" type="checkbox" name="mouse" id="mouse"> -->
+  <img src="images/cursor/purple.png" id="cursorimg" height="150" width="150">
 
-  <img src="images/cursor/cursor.png" id="cursorimg" height="15" width="15">
+  <!-- <input class="hide" type="checkbox" name="mouse" id="mouse"> -->
 
 
 <!-- **************************************************************************************************************************** -->
@@ -831,7 +831,7 @@ else
 
   function getCoords(event){
     var x = event.clientX;
-    var y = event.clientY;
+    var y = event.clientY - 325;
     console.log(x + " " + y);
 
     // var cursorimg = "images/cursor/cursor.png";
