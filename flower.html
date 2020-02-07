@@ -668,7 +668,7 @@ body.open,body:after{
     <img class="two" id="one_onclick" width= 100%/>
   </div> -->
 
-  <div class="images" onmousemove="getCoords(event)">
+  <div class="images" onmousemove="getCoords(event);">
     <div id="playground">
       <div class="playground">
         <img id="img1" onload="fadeImage();" width= 100%/>
@@ -833,16 +833,15 @@ else
     var y = event.clientY;
     console.log(x + " " + y);
 
-<<<<<<< HEAD
-    var cursorimg = "~/images/cursor/cursor.png"
-=======
-    var cursorimg = "images/cursor/cursor.png";
->>>>>>> refs/remotes/origin/master
-    cursorimg.height = '15px';
-    cursorimg.width = '15px';
+    // var cursorimg = "images/cursor/cursor.png";
+    // cursorimg.height = '15px';
+    // cursorimg.width = '15px';
 
-    cursorimg.style.left = x+'px';
-    cursorimg.marginTop = y+'px';
+    document.getElementById("cursorimg").style.marginLeft = x+'px';
+    document.getElementById("cursorimg").style.marginTop = y+'px';
+
+    // cursorimg.margin-left = x+'px';
+    // cursorimg.margin-top = y+'px';
 
   }
 
