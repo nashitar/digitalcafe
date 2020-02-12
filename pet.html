@@ -662,7 +662,7 @@
   <div class="b-nav">
 
     <li><a class="b-link b-link--active" href="index.html">sam & nashita's digital cafe</a></li>
-    <li><a class="b-link" href="flower.html">water the flowers</a></li>
+    <li><a class="b-link" href="flower.html">water the Pets</a></li>
     <li><a class="b-link" href="pet.html">pet lily and tucker</a></li>
     <li><a class="b-link" href="tile.html">tile game</a></li>
 
@@ -724,24 +724,24 @@
   /* VARIABLES *************************************************************************************************************************/
   /*************************************************************************************************************************************/
 
-  var currentFlowers = [];
-  var flowerIndex = 0;
+  var currentPets = [];
+  var petIndex = 0;
   var imgtoggle = false;
   var gameInProgress = false;
 
-  var allFlowers = ["images/flower/1.JPG",
-                    "images/flower/2.JPG",
-                    "images/flower/3.JPG",
-                    "images/flower/4.JPG",
-                    "images/flower/5.JPG",
-                    "images/flower/6.JPG",
-                    "images/flower/7.JPG",
-                    "images/flower/8.JPG",
-                    "images/flower/9.JPG",
-                    "images/flower/10.JPG",
-                    "images/flower/11.JPG",
-                    "images/flower/12.JPG",
-                    "images/flower/13.JPG"]
+  var allPets = ["images/pet/1.JPG",
+                    "images/pet/2.JPG",
+                    "images/pet/3.JPG",
+                    "images/pet/4.JPG",
+                    "images/pet/5.JPG",
+                    "images/pet/6.JPG",
+                    "images/pet/7.JPG",
+                    "images/pet/8.JPG",
+                    "images/pet/9.JPG",
+                    "images/pet/10.JPG",
+                    "images/pet/11.JPG",
+                    "images/pet/12.JPG",
+                    "images/pet/13.JPG"]
 
   /*************************************************************************************************************************************/
   /*************************************************************************************************************************************/
@@ -753,8 +753,8 @@
   /* INITIALIZE ************************************************************************************************************************/
   /*************************************************************************************************************************************/
 
-  assignFlowers();
-  document.getElementById('img1').src = currentFlowers[0];
+  assignPets();
+  document.getElementById('img1').src = currentPets[0];
   var gameInProgress = true;
 
   /*************************************************************************************************************************************/
@@ -768,24 +768,24 @@
   /*************************************************************************************************************************************/
 
   function nextImage(){
-    if(flowerIndex < 4)
+    if(petIndex < 4)
     {
       imgtoggle = !imgtoggle;
 
-      // flowerIndex = (flowerIndex + 1) % currentFlowers.length;
+      // petIndex = (petIndex + 1) % currentPets.length;
 
-      flowerIndex++;
-      console.log(flowerIndex);
+      petIndex++;
+      console.log(petIndex);
 
       if (imgtoggle)
-        document.getElementById('img2').src = currentFlowers[flowerIndex];
+        document.getElementById('img2').src = currentPets[petIndex];
       else
-        document.getElementById('img1').src = currentFlowers[flowerIndex];
+        document.getElementById('img1').src = currentPets[petIndex];
 
       updateProgressBar();
     }
     else{
-      flowerIndex = 5;
+      petIndex = 5;
       updateProgressBar();
       endGame();
     }
@@ -815,23 +815,23 @@
 
 
   /*************************************************************************************************************************************/
-  /* ASSIGN FLOWERS ********************************************************************************************************************/
+  /* ASSIGN Pets ********************************************************************************************************************/
   /*************************************************************************************************************************************/
 
-  function assignFlowers(){
+  function assignPets(){
     for(let i = 0; i < 5; i++)
     {
-      var rnd = Math.floor(Math.random() * (allFlowers.length));
-      if(!currentFlowers.includes(allFlowers[rnd]))
+      var rnd = Math.floor(Math.random() * (allPets.length));
+      if(!currentPets.includes(allPets[rnd]))
       {
-        currentFlowers.push(allFlowers[rnd]);
+        currentPets.push(allPets[rnd]);
         // console.log('1 ' + rnd);
       }
       else{
         i--;
       }
     }
-    // console.log(currentFlowers);
+    // console.log(currentPets);
   }
 
   /*************************************************************************************************************************************/
@@ -855,24 +855,24 @@
 
 
   /*************************************************************************************************************************************/
-  /* DISPLAY FLOWERS - ?? **************************************************************************************************************/
+  /* DISPLAY Pets - ?? **************************************************************************************************************/
   /*************************************************************************************************************************************/
 
-  // function displayFlower(){
-  //   console.log(flowerIndex);
-  //   // Remove current flower (dissolve?)
+  // function displaypet(){
+  //   console.log(petIndex);
+  //   // Remove current pet (dissolve?)
   //   updateProgressBar();
   //
-  //   if(flowerIndex == 5)
+  //   if(petIndex == 5)
   //   {
   //     endGame();
   //   }
   //   else{
-  //     document.getElementById('one_onclick').src = currentFlowers[flowerIndex];
-  //     flowerIndex++;
+  //     document.getElementById('one_onclick').src = currentPets[petIndex];
+  //     petIndex++;
   //     // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
-  //     // document.getElementById('one_onclick').src = "images/flower/1.JPG";
-  //     // flowerIndex++;
+  //     // document.getElementById('one_onclick').src = "images/pet/1.JPG";
+  //     // petIndex++;
   //   }
   // }
 
@@ -888,10 +888,10 @@
 
   function restartGame(){
     confetti.clear();
-    assignFlowers();
-    document.getElementById('img1').src = currentFlowers[0];
+    assignPets();
+    document.getElementById('img1').src = currentPets[0];
     gameInProgress = true;
-    flowerIndex = 0;
+    petIndex = 0;
     document.getElementById("current-progress").style.width = "1%";
 
   }
@@ -1012,7 +1012,7 @@
   //   //     $("#one_onclick").click(function() {
   //   //       console.log("c");
   //   //   	  $("#images img.two").toggleClass("transparent");
-  //   //       displayFlower();
+  //   //       displaypet();
   //   //     $});
   //   //   $});
 	//   // $});
@@ -1125,8 +1125,8 @@
       // console.log("width" + width);
 
       function frame() {
-        // console.log((flowerIndex/5)*100);
-        if (width >= (flowerIndex/5)*100) {
+        // console.log((petIndex/5)*100);
+        if (width >= (petIndex/5)*100) {
 
           clearInterval(id);
           i = 0;
