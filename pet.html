@@ -2,6 +2,7 @@
 <html>
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="node_modules/confetti-js/dist/index.min.js"></script>
 </head>
 <style>
 
@@ -13,19 +14,33 @@ body {
   margin: 0;
   font-family: Arial;
   background-color: #eeeff1;
+  /*background: #eee;*/
+  text-align: center;
   /* background-size: 600%,600%;
   background-image: linear-gradient(-60deg, #e7eaf0);
   position: relative;
   animation: change 30s ease-in-out infinite; */
   height: 100%;
+  overflow: hidden;
 }
 
 img{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* .custom {
+  cursor: "images/cursor/cursor.png", auto;
+} */
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 .fadeLogo{
@@ -53,7 +68,966 @@ img{
   }
 }
 
+/*************************************************************************************************************************************/
+/* CLICK TRIGGER / IMAGE CSS *********************************************************************************************************/
+/*************************************************************************************************************************************/
+
+/* #images {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+} */
+/* #images img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#images img.transparent {
+  opacity:0;
+} */
+
+/* *****************************************************************************************************************************************
+** CURSOR IMAGE REPLACEMENT ****************************************************************************************************************
+ ***************************************************************************************************************************************** */
+
+/*
+
+@keyframes animate{
+  0%{
+    cursor: url("http://jantimon.nl/running_man/running_man_1.png"), auto;
+  }
+  20%{
+    cursor: url("http://jantimon.nl/running_man/running_man_2.png"), auto;
+  }
+  40%{
+    cursor: url("http://jantimon.nl/running_man/running_man_3.png"), auto;
+  }
+  60%{
+    cursor: url("http://jantimon.nl/running_man/running_man_4.png"), auto;
+  }
+  80%{
+    cursor: url("http://jantimon.nl/running_man/running_man_5.png"), auto;
+  }
+  100%{
+    cursor: url("http://jantimon.nl/running_man/running_man_1.png"), auto;
+  }
+}
+
+*/
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+/* #one_onclick {
+  cursor: "~/Desktop/cafe/digitalcafe/images/cursor/cursor.png", auto;
+  cursor: pointer;
+} */
+
+#img2{
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.images {
+
+  cursor: none;
+
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+
+  /* animation: animate 0.25s infinite; */
+}
+
+.images img{
+  position:absolute;
+  left:0;
+  border-style: solid;
+  border-color: white;
+  border-width: 7px;
+
+}
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+/*************************************************************************************************************************************/
+/* CLICK TRIGGER / IMAGE CSS *********************************************************************************************************/
+/*************************************************************************************************************************************/
+
+h1 {
+  font-size: 1.5em;
+}
+
+form {
+  margin-top: 2em;
+}
+
+.hide {
+  position: absolute;
+  left: -10000px;
+}
+
+label {
+  display: inline-block;
+  background: gray;
+  margin: 25px;
+  position: relative;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 2px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* #mouse {
+  ~ .option-mouse {
+    cursor: "images/flower/1.JPG", auto;
+  }
+  &:checked ~ .option-mouse {
+    background: white;
+  }
+} */
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+/* VERSION 1 *****************************************************************************************************************************
+
+.css-slideshow{
+  position: relative;
+  max-width: 495px;
+  height: 370px;
+  margin: 5em auto .5em auto;
+}
+
+.css-slideshow figure{
+  margin: 0;
+  max-width: 495px;
+  height: 370px;
+  background: #000;
+  position: absolute;
+}
+
+.css-slideshow img{
+  box-shadow: 0 0 2px #666;
+}
+
+.css-slideshow figcaption{
+  position: absolute;
+  top: 0;
+  color: #fff;
+  background: rgba(0,0,0, .3);
+  font-size: .8em;
+  padding: 8px 12px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.css-slideshow:hover figure figcaption{
+  transition: opacity .5s;
+  opacity: 1;
+}
+
+.css-slideshow-attr{
+  max-width: 495px;
+  text-align: right;
+  font-size: .7em;
+  font-style: italic;
+  margin:0 auto;
+}
+
+.css-slideshow-attr a{
+  color: #666;
+}
+
+.css-slideshow figure{
+  opacity:0;
+}
+
+figure:nth-child(1) {
+  animation: xfade 48s 42s infinite;
+}
+
+figure:nth-child(2) {
+  animation: xfade 48s 36s infinite;
+}
+
+figure:nth-child(3) {
+  animation: xfade 48s 30s infinite;
+}
+
+figure:nth-child(4) {
+  animation: xfade 48s 24s infinite;
+}
+
+figure:nth-child(5) {
+  animation: xfade 48s 18s infinite;
+}
+
+figure:nth-child(6) {
+  animation: xfade 48s 12s infinite;
+}
+
+figure:nth-child(7) {
+  animation: xfade 48s 6s infinite;
+}
+
+figure:nth-child(8) {
+  animation: xfade 48s 0s infinite;
+}
+
+@keyframes xfade{
+  0%{
+    opacity: 1;
+  }
+  14.67% {
+    opacity:1;
+  }
+  16.67%{
+    opacity: 0;
+  }
+  98% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+**************************************************************************************************************************************/
+
+
+/*************************************************************************************************************************************/
+/* NAVBAR CSS CODE *******************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+body.open,body:after{
+      overflow:hidden;
+    }
+
+    .b-nav,body:after{
+      position:absolute;
+    }
+
+    /* Text */
+
+    .b-brand,.b-link{
+      font-family:Helvetica-Neue,Helvetica,Arial,sans-serif;
+      font-size:24px;
+      font-weight:300;
+      margin-left:30px;
+      text-decoration:none;
+    }
+
+    @-webkit-keyframes slideInLeft{
+      0%{
+        -webkit-transform:translate3d(-250px,0,0);
+        transform:translate3d(-250px,0,0);
+        visibility:visible;
+      }
+
+      100%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+      }
+    }
+
+    @keyframes slideInLeft{
+      0%{
+        -webkit-transform:translate3d(-250px,0,0);
+        transform:translate3d(-250px,0,0);
+        visibility:visible;
+      }
+
+      100%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+      }
+    }
+
+    @-webkit-keyframes slideOutLeft{
+      0%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+      }
+
+      100%{
+        -webkit-transform:translate3d(-250px,0,0);
+        transform:translate3d(-250px,0,0);
+        visibility:hidden;
+      }
+    }
+
+    @keyframes slideOutLeft{
+      0%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+      }
+
+      100%{
+        -webkit-transform:translate3d(-250px,0,0);
+        transform:translate3d(-250px,0,0);
+        visibility:hidden;
+      }
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body:after{
+      background:#000000;
+      content:'';
+      height:100%;
+      left:0;
+      opacity:0;
+      padding:0;
+      top:0;
+      visibility:hidden;
+      -webkit-transition:all .4s ease;
+      transition:all .4s ease;
+      width:100%;
+    }
+
+    body.open:after{
+      opacity:0.90;
+      visibility:visible;
+      backdrop-filter: blur(7px);
+    }
+
+    .b-nav{
+      z-index:11;
+    }
+
+    .b-nav:not(.open){
+      visibility:hidden;
+    }
+
+    .b-nav li{
+      color:#fff;
+      list-style-type:none;
+      padding:10px;
+      text-align:left;
+      -webkit-transform:translateX(-250px);
+      -ms-transform:translateX(-250px);
+      transform:translateX(-250px);
+    }
+
+    .b-nav li:not(.open){
+      animation-duration:.4s;
+      animation-fill-mode:both;
+      -webkit-animation-name:slideOutLeft;
+      animation-name:slideOutLeft;
+    }
+
+    .b-nav li:not(.open),.b-nav.open li{
+      -webkit-animation-duration:.4s;
+      -webkit-animation-fill-mode:both;
+    }
+
+    .b-nav li:first-child{
+      padding-top:120px;
+    }
+
+    .b-nav.open{
+      visibility:visible;
+    }
+
+    .b-nav.open li{
+      animation-duration:.4s;
+      animation-fill-mode:both;
+      -webkit-animation-name:slideInLeft;
+      animation-name:slideInLeft;
+    }
+
+    .b-link{
+      background:0 0;
+      border-left:rgba(255,255,255,0)solid 2px;
+      color:#fff;
+      transition:all .4s ease;
+      width:auto;
+    }
+
+    .b-link,.b-menu{
+      -webkit-transition:all .4s ease;
+    }
+
+    .b-link--active,.b-link:hover{
+      border-left:#fff solid 2px;
+      padding-left:30px;
+    }
+
+    .b-menu{
+      background:#181818;
+      border:2px solid #181818;
+      border-radius:50%;
+      cursor:pointer;
+      display:inline-block;
+      height:60px;
+      padding-left:15.5px;
+      padding-top:17.5px;
+      position:relative;
+      transition:all .4s ease;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+      width:60px;
+      z-index:12;
+    }
+
+    .b-bun--bottom,.b-bun--mid,.b-bun--top{
+      height:2px;
+      width:25px;
+    }
+
+    .b-container.open .b-main,.b-menu:hover{
+      border:2px solid #fff;
+    }
+
+    .b-bun{
+      background:#fff;
+      transition:all .4s ease;
+    }
+
+    .b-brand,.b-bun{
+      position:relative;
+      -webkit-transition:all .4s ease;
+    }
+
+    .b-bun--top{
+      top:0;
+    }
+
+    .b-bun--mid{
+      top:8px;
+    }
+
+    .b-bun--bottom{
+      top:16px;
+    }
+
+    .b-brand{
+      color:#000000;
+      top:-21.43px;
+      transition:all .4s ease;
+      z-index:13;
+    }
+
+    .b-container{
+      height:60px;
+      left:30px;
+      position:absolute;
+      top:30px;
+    }
+
+    .b-container:hover:not(.open) .bun-bottom,.b-container:hover:not(.open) .bun-mid,.b-container:hover:not(.open) .bun-top{
+      background: #000000;
+    }
+
+    .b-container.open .b-bun--top{
+      background:#fff
+      top:9px;
+      opacity:0;
+      /*-webkit-transform:rotate(45deg);
+      -ms-transform:rotate(45deg);
+      transform:rotate(45deg);*/
+    }
+
+    .b-container.open .b-bun--mid{
+      opacity:1;
+      -webkit-transform:rotate(-45deg);
+      -ms-transform:rotate(-45deg);
+      transform:rotate(-45deg);
+    }
+
+    .b-container.open .b-bun--bottom{
+      background:#fff;
+      top:5px;
+      /*opacity:0;*/
+      -webkit-transform:rotate(45deg);
+      -ms-transform:rotate(45deg);
+      transform:rotate(45deg);*/
+    }
+
+    .b-container.open .b-brand{
+      color:#fff;
+    }
+
+    #background-progress{
+      margin-top: 20px;
+      width: 448px;
+      background-color: #ddd;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #current-progress{
+      width: 1%;
+      height: 30px;
+      background-color: #4CAF50;
+    }
+
+  #my-canvas{
+    position:absolute;
+    top:0;
+    left: 0;
+  }
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+/*************************************************************************************************************************************/
+/* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
+/*************************************************************************************************************************************/
+
+/* #playground {
+  width: 100%;
+  height: 100%;
+} */
+
+#cursorimg {
+  position: absolute;
+  visibility: hidden;
+  /* position: relative; */
+}
+
+/* .images:hover #cursorimg{
+  display: block;
+} */
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
 </style>
+
 <body>
-  <img src="images/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+<canvas id="my-canvas"></canvas>
+
+
+<!-- **************************************************************************************************************************** -->
+<!-- NAVBAR HTML CODE *********************************************************************************************************** -->
+<!-- **************************************************************************************************************************** -->
+
+  <!-- Navigation -->
+  <div class="b-nav">
+
+    <li><a class="b-link b-link--active" href="index.html">sam & nashita's digital cafe</a></li>
+    <li><a class="b-link" href="flower.html">water the flowers</a></li>
+    <li><a class="b-link" href="pet.html">pet lily and tucker</a></li>
+    <li><a class="b-link" href="tile.html">tile game</a></li>
+
+  </div>
+
+  <!-- Burger-Icon -->
+  <div class="b-container">
+    <div class="b-menu">
+      <div class="b-bun b-bun--top"></div>
+      <div class="b-bun b-bun--mid"></div>
+      <div class="b-bun b-bun--bottom"></div>
+    </div>
+
+    <!-- Burger-Brand -->
+    <a href="#" class="b-brand"></a>
+  </div>
+
+<!-- **************************************************************************************************************************** -->
+<!-- **************************************************************************************************************************** -->
+<!-- **************************************************************************************************************************** -->
+
+  <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+
+  <div id="background-progress">
+    <div id="current-progress"></div>
+  </div>
+
+  <!-- <div id="images">
+    <img class="two" id="one_onclick" width= 100%/>
+  </div> -->
+
+  <div class="images" onmousemove="getCoords(event);">
+    <div id="playground">
+      <div class="playground">
+        <img id="img1" onload="fadeImage();" width= 100%/>
+        <img id="img2" onload="fadeImage();" width= 100%/>
+      </div>
+    </div>
+  </div>
+
+  <img src="images/cursor/purple.png" id="cursorimg" height="150" width="150">
+  <!-- <img src="images/cursor/cursor.png" id="cursorimg" height="10" width="10"> -->
+
+  <!-- <input class="hide" type="checkbox" name="mouse" id="mouse"> -->
+
+
+<!-- **************************************************************************************************************************** -->
+<!-- CURSOR IMAGE REPLACEMENT *************************************************************************************************** -->
+<!-- **************************************************************************************************************************** -->
+
+  <!-- <div id="playground"></div> -->
+
+<!-- **************************************************************************************************************************** -->
+<!-- **************************************************************************************************************************** -->
+<!-- **************************************************************************************************************************** -->
+
+  <!--
+
+  <img src="images/logo/temp-logo.jpg" class="fadeLogo "alt="Logo" height="40px" width="40px">
+
+  <div id="images">
+    <img class="two" id="one_onclick" width= 100%/>
+  </div>
+
+  -->
+
+  <script>
+
+/*************************************************************************************************************************************/
+/* FUNCTIONS *************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+// comment more specifically later
+
+var confettiSettings = { target: 'my-canvas', "props":["square"], animate: true };
+var confetti = new ConfettiGenerator(confettiSettings);
+
+var currentFlowers = [];
+var flowerIndex = 0;
+var imgtoggle = false;
+var gameInProgress = false;
+
+var allFlowers = ["images/flower/1.JPG",
+                  "images/flower/2.JPG",
+                  "images/flower/3.JPG",
+                  "images/flower/4.JPG",
+                  "images/flower/5.JPG",
+                  "images/flower/6.JPG",
+                  "images/flower/7.JPG",
+                  "images/flower/8.JPG",
+                  "images/flower/9.JPG",
+                  "images/flower/10.JPG",
+                  "images/flower/11.JPG",
+                  "images/flower/12.JPG",
+                  "images/flower/13.JPG"]
+
+assignFlowers();
+document.getElementById('img1').src = currentFlowers[0];
+var gameInProgress = true;
+
+// This function will initialize loading the next image in background
+
+function nextImage(){
+  if(flowerIndex < 4)
+  {
+    imgtoggle = !imgtoggle;
+
+    // flowerIndex = (flowerIndex + 1) % currentFlowers.length;
+
+    flowerIndex++;
+    console.log(flowerIndex);
+
+    if (imgtoggle)
+      document.getElementById('img2').src = currentFlowers[flowerIndex];
+    else
+      document.getElementById('img1').src = currentFlowers[flowerIndex];
+
+    updateProgressBar();
+  }
+  else{
+    flowerIndex = 5;
+    updateProgressBar();
+    endGame();
+  }
+}
+
+// This function will trigger the crossfade and then start the timer for the next switch
+
+function fadeImage() {
+if (imgtoggle)
+  document.getElementById('img2').style.opacity = '1.0';
+else
+  document.getElementById('img2').style.opacity = '0.0';
+}
+
+  // var test = [1,2,3,4,5,6,7,8,9,10];
+
+  function assignFlowers(){
+    for(let i = 0; i < 5; i++)
+    {
+      var rnd = Math.floor(Math.random() * (allFlowers.length));
+      if(!currentFlowers.includes(allFlowers[rnd]))
+      {
+        currentFlowers.push(allFlowers[rnd]);
+        // console.log('1 ' + rnd);
+      }
+      else{
+        i--;
+      }
+    }
+    // console.log(currentFlowers);
+  }
+
+  function updateProgressBar(){
+    move();
+  }
+
+  // function displayFlower(){
+  //   console.log(flowerIndex);
+  //   // Remove current flower (dissolve?)
+  //   updateProgressBar();
+  //
+  //   if(flowerIndex == 5)
+  //   {
+  //     endGame();
+  //   }
+  //   else{
+  //     document.getElementById('one_onclick').src = currentFlowers[flowerIndex];
+  //     flowerIndex++;
+  //     // ... (crossfade) SAM'S CODE FROM NASHITA'S GITHUB
+  //     // document.getElementById('one_onclick').src = "images/flower/1.JPG";
+  //     // flowerIndex++;
+  //   }
+  // }
+
+  function restartGame(){
+    confetti.clear();
+    assignFlowers();
+    document.getElementById('img1').src = currentFlowers[0];
+    gameInProgress = true;
+    flowerIndex = 0;
+    document.getElementById("current-progress").style.width = "1%";
+
+  }
+
+  function endGame(){
+    // Display congratulations message.
+    // Display start again text.
+    confetti.render();
+    gameInProgress = false;
+    // alert("Game has ended.");
+
+  }
+
+  function getCoords(event){
+    document.getElementById("cursorimg").style.visibility = "visible";
+
+    var x = event.clientX;
+    var y = event.clientY;
+    // var x = event.clientX - 25;
+    // var y = event.clientY - 325;
+    console.log(x + " " + y);
+
+    // var cursorimg = "images/cursor/cursor.png";
+    // cursorimg.height = '15px';
+    // cursorimg.width = '15px';
+
+    // document.getElementById("cursorimg").style.marginLeft = x+'px';
+    // document.getElementById("cursorimg").style.marginTop = y+'px';
+    document.getElementById("cursorimg").style.left = x+'px';
+    document.getElementById("cursorimg").style.top = y+'px';
+
+    // cursorimg.margin-left = x+'px';
+    // cursorimg.margin-top = y+'px';
+
+  }
+
+  var waterCanGif = ["images/curimages/1.cur",
+                    "images/curimages/2.cur",
+                    "images/curimages/3.cur",
+                    "images/curimages/4.cur",
+                    "images/curimages/5.cur"];
+
+
+
+  // function playGif(){
+  //   var gifIndex = 0;
+  //   var id2 = setInterval(frame, 200);
+  //
+  //   function frame() {
+  //     gifIndex++;
+  //     document.getElementById("cursorimg").src = waterCanGif[gifIndex];
+  //
+  //
+  //     if(gifIndex == 4){
+  //       clearInterval(id2);
+  //       // document.getElementById("cursorimg").src = "images/cursor/purple.png";
+  //     }
+  //   }
+  // }
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+/*************************************************************************************************************************************/
+/* CLICK TRIGGER *********************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+  // $(document).ready(function() {
+  //   // startGame();
+	//   // $("#one_onclick").click(function() {
+  //   //   console.log("a");
+  //   //   $("#one_onclick").click(function() {
+  //   //     console.log("b");
+  //   //     $("#one_onclick").click(function() {
+  //   //       console.log("c");
+  //   //   	  $("#images img.two").toggleClass("transparent");
+  //   //       displayFlower();
+  //   //     $});
+  //   //   $});
+	//   // $});
+  // $});
+
+  //DIFFERENT VERSION
+
+  jQuery.fn.single_double_click = function(single_click_callback, double_click_callback, timeout) {
+    return this.each(function(){
+    var clicks = 0, self = this;
+    jQuery(this).click(function(event){
+      clicks++;
+      if (clicks == 1) {
+        setTimeout(function(){
+          if(clicks == 1) {
+              single_click_callback.call(self, event);
+            } else {
+              double_click_callback.call(self, event);
+            }
+            clicks = 0;
+          }, timeout || 300);
+        }
+      });
+    });
+  }
+
+  $(".images").single_double_click(function () {
+    if(gameInProgress == false)
+    {
+      restartGame();
+    }
+    else
+    {
+      // var times = 0;
+      // var id3 = setInterval(function () {
+      //   if(times < 3)
+      //   {
+      //     playGif();
+      //     times++;
+      //   }
+      //   else{
+      //     clearInterval(id3);
+      //     document.getElementById("cursorimg").src = "images/cursor/purple.png";
+      //   }
+      // }, 1000);
+      document.getElementById("cursorimg").src = "images/cursor/purple.gif";
+      setTimeout(() => { document.getElementById("cursorimg").src = "images/cursor/purple.png"; }, 3000);
+    }
+
+  }, function () {
+    nextImage();
+  })
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+/*************************************************************************************************************************************/
+/* NAVBAR JAVASCRIPT CODE ************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+    "use strict";
+
+    !function(){
+      var e=document.body,
+      n=document.getElementsByClassName("b-menu")[0],
+      t=document.getElementsByClassName("b-container")[0],
+      s=document.getElementsByClassName("b-nav")[0];
+
+      n.addEventListener("click",
+      function(){[e,t,s].forEach(
+        function(e){
+          e.classList.toggle("open")
+      })},!1)}();
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+
+  function move() {
+    var i = 0;
+    // console.log("test");
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("current-progress");
+      var width = elem.style.width.substring(0, elem.style.width.length - 1);
+      // console.log(width);
+
+      var id = setInterval(frame, 10);
+      // console.log("width" + width);
+
+      function frame() {
+        // console.log((flowerIndex/5)*100);
+        if (width >= (flowerIndex/5)*100) {
+
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          // console.log(width);
+          elem.style.width = width + "%";
+        }
+      }
+    }
+  }
+
+/*************************************************************************************************************************************/
+/* CURSOR IMAGE REPLACEMENT **********************************************************************************************************/
+/*************************************************************************************************************************************/
+
+  // var playground = document.querySelector("#playground");
+
+  // var cursorArray = ['url(~/images/cursor/cursor.png), default',
+  //                    'url(~/images/cursor/cursor.png), default',
+  //                   'url("http://jantimon.nl/running_man/running_man_3.cur"), default',
+  //                   'url("http://jantimon.nl/running_man/running_man_4.cur"), auto',
+  //                   'url("http://jantimon.nl/running_man/running_man_5.cur", auto'];
+  // i = 0;
+  // (function cursor(){
+  //   playground.style.cursor  = cursorArray[i];
+  //   i++;
+  //   if(i == cursorArray.length){
+  //     i = 0;
+  //   }
+  //    setTimeout(cursor, 50);
+  // })();
+
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+/*************************************************************************************************************************************/
+
+  </script>
+
 </body>
