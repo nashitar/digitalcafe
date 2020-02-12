@@ -853,36 +853,29 @@ else
 
   }
 
-  var waterCanGif = ["images/flower/1.JPG",
-                    "images/flower/2.JPG",
-                    "images/flower/3.JPG",
-                    "images/flower/4.JPG",
-                    "images/flower/5.JPG",
-                    "images/flower/6.JPG",
-                    "images/flower/7.JPG",
-                    "images/flower/8.JPG",
-                    "images/flower/9.JPG",
-                    "images/flower/10.JPG",
-                    "images/flower/11.JPG",
-                    "images/flower/12.JPG",
-                    "images/flower/13.JPG"]
-
-  var gifIndex = 0;
-
-  function playGif(){
-    var id2 = setInterval(frame, 10);
-
-    function frame() {
-      clearInterval(id);
-      document.getElementById("cursorimg").src = waterCanGif[gifIndex];
-      gifIndex++;
-
-      if(gifIndex == 4)
-        clearInterval(id2);
-    }
+  var waterCanGif = ["images/curimages/1.cur",
+                    "images/curimages/2.cur",
+                    "images/curimages/3.cur",
+                    "images/curimages/4.cur",
+                    "images/curimages/5.cur"];
 
 
-  }
+
+  // function playGif(){
+  //   var gifIndex = 0;
+  //   var id2 = setInterval(frame, 200);
+  //
+  //   function frame() {
+  //     gifIndex++;
+  //     document.getElementById("cursorimg").src = waterCanGif[gifIndex];
+  //
+  //
+  //     if(gifIndex == 4){
+  //       clearInterval(id2);
+  //       // document.getElementById("cursorimg").src = "images/cursor/purple.png";
+  //     }
+  //   }
+  // }
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
 /*************************************************************************************************************************************/
@@ -935,7 +928,20 @@ else
     }
     else
     {
-      playGif();
+      // var times = 0;
+      // var id3 = setInterval(function () {
+      //   if(times < 3)
+      //   {
+      //     playGif();
+      //     times++;
+      //   }
+      //   else{
+      //     clearInterval(id3);
+      //     document.getElementById("cursorimg").src = "images/cursor/purple.png";
+      //   }
+      // }, 1000);
+      document.getElementById("cursorimg").src = "images/cursor/purple.gif";
+      setTimeout(() => { document.getElementById("cursorimg").src = "images/cursor/purple.png"; }, 3000);
     }
 
   }, function () {
