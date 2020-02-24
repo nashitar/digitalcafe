@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Tile Game</title>
-    <link rel="stylesheet" type="text/css" href="game.css">
+    <!-- <link rel="stylesheet" type="text/css" href="game.css"> -->
   </head>
 
   <style>
@@ -109,7 +109,7 @@
       display: inline-block;
       height: 50px;
       width: 50px;
-      background-image: url('resources/pictures/icons/options.png');
+      /* background-image: url('resources/pictures/icons/options.png'); */
       background-repeat: no-repeat;
       background-size: 100% 100%;
       cursor: pointer;
@@ -581,7 +581,7 @@
 
         if(foldername == undefined) {
 
-          var slectFolder  = Math.floor((Math.random() * 4));
+          var slectFolder  = Math.floor((Math.random() * (game.folders.length-1)));
           var folder = game.folders[slectFolder];
           game.frame.style.backgroundImage = "url('"+folder+"/"+"frame.jpg"+"')"
 
