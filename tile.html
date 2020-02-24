@@ -36,7 +36,7 @@
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16);
       font-weight: 10px;
       flex-direction: column;
-      justify-content: center;  
+      justify-content: center;
     }
 
     #heading_Container > div#head {
@@ -130,7 +130,7 @@
       margin: auto auto;
       height: 50%;
       border: 1px solid white;
-      width: 60%; 
+      width: 60%;
       background-color: rgba(255,255,255,0.9);
       text-align: center;
       font-size: 30px;
@@ -146,8 +146,8 @@
     }
 
     @media screen and (max-width: 1209px) {
-      div#frame { 
-       display: none; 
+      div#frame {
+       display: none;
       }
 
       #img-container{
@@ -347,6 +347,12 @@
     visibility:visible;
     }
 
+    .b-nav{
+    visibility:visible;
+    position: absolute;
+    top: 10px;
+    }
+
     .b-nav.open li{
     animation-duration:.4s;
     animation-fill-mode:both;
@@ -487,7 +493,7 @@
 
 
   </style>
-  
+
   <body>
 
     <div id="heading_Container">
@@ -538,7 +544,7 @@
     </div>
 
     <script>
-      
+
       var game = new Object();
 
       game.tiles = Array.from(document.getElementsByClassName('tile')); //is our board
@@ -589,7 +595,7 @@
 
           }
 
-        } 
+        }
       }
 
       function addClickEvent(){ //adding click event to each tile
@@ -618,7 +624,7 @@
           }
 
           game.options.addEventListener('click',function () {
-      
+
             game.wrapper.style.display = "inline-block";
           });
 
@@ -644,11 +650,11 @@
 
           var position = Array.prototype.indexOf.call(array,game.blanktile);
           if(position == 0){
-            moves = top_left;   
+            moves = top_left;
           }
 
           if (position == 1) {
-            moves = middle_top; 
+            moves = middle_top;
           }
 
           if(position == 2){
@@ -689,7 +695,7 @@
 
         return array
       }
-        
+
       function setTiles(gameobj){
 
         var a = gameobj.tiles
@@ -766,11 +772,11 @@
         var res_blank = current_blank_posX.split('px')[0];
         var current_blank = eval(res_blank);
 
-        game.blanktile.style.left = (current_blank-113).toString()+"px"; 
+        game.blanktile.style.left = (current_blank-113).toString()+"px";
 
         //game.tiles = Array.from(game.tiles);
         game.tiles[blank_position] = game.tiles[position]
-        game.tiles[position] = game.blanktile; 
+        game.tiles[position] = game.blanktile;
       }
 
       function isLeft(tile){
@@ -799,7 +805,7 @@
         var res_blank = current_blank_posX.split('px')[0];
         var current_blank = eval(res_blank);
 
-        game.blanktile.style.left = (current_blank+113).toString()+"px"; 
+        game.blanktile.style.left = (current_blank+113).toString()+"px";
 
         //game.tiles = Array.from(game.tiles);
         game.tiles[blank_position] = game.tiles[position]
