@@ -4,59 +4,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Tile Game</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="game.css">
   </head>
-  
+
   <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial;
-      background-color: #eeeff1;
-      /* background-size: 600%,600%;
-      background-image: linear-gradient(-60deg, #e7eaf0);
-      position: relative;
-      animation: change 30s ease-in-out infinite; */
-      height: 100%;
-    }
-
-    img{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-
-    .fadeLogo{
-      animation: transitionIn 2s;
-    }
-
-    @keyframes change {
-      0%{
-        background-position: 0 50%;
-      }
-      50%{
-        background-position: 100% 50%;
-      }
-      100%{
-        background-position: 0% 50%;
-      }
-    }
-
-    @keyframes transitionIn {
-      from{
-        opacity: 0;
-      }
-      to{
-        opacity: 1;
-      }
-    }
-
     @font-face {
         font-family: Lucida;
         src: url('resources/fonts/Monaco.ttf');
@@ -624,9 +575,7 @@
 
               var tileImg = i+1;
               game.tiles[i].style.backgroundImage = "url('"+folder+"/"+game.img[tileImg]+"')"
-
           }
-
         }
 
         else {
@@ -769,6 +718,172 @@
           set[2][i].style.top = "226px";
           set[2][i].style.left = position.toString()+"px";
 
+        }
+      }
+
+      function shiftPuzzle(tile){
+        if (isRight(tile)){
+          moveRight(tile);
+        }
+
+        else if (isLeft(tile)) {
+          moveLeft(tile);
+        }
+
+        else if (isTop(tile)){
+          moveTop(tile);
+        }
+
+        else if (isDown(tile)){
+          moveDown(tile)
+        }
+      }
+
+      function isRight(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        console.log(position);
+        blank_position = position + 1;
+
+        if(Object.is(game.tiles[blank_position],game.blanktile) && position!=5 && position!=2 && position!=8){
+
+          return true;
+        }
+
+      }
+
+      function moveRight(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        var current_posX = tile.style.left;
+        var res = current_posX.split('px')[0];
+
+        current = eval(res);
+        tile.style.left = (current+113).toString()+"px";
+
+        var blank_position = Array.prototype.indexOf.call(game.tiles,game.blanktile);
+        var current_blank_posX = game.blanktile.style.left;
+        var res_blank = current_blank_posX.split('px')[0];
+        var current_blank = eval(res_blank);
+
+        game.blanktile.style.left = (current_blank-113).toString()+"px"; 
+
+        //game.tiles = Array.from(game.tiles);
+        game.tiles[blank_position] = game.tiles[position]
+        game.tiles[position] = game.blanktile; 
+      }
+
+      function isLeft(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        blank_position = position - 1;
+
+        if(Object.is(game.tiles[blank_position],game.blanktile) &&  position!=0 && position!=3 && position!=6){
+
+          return true;
+        }
+      }
+
+      function moveLeft(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        var current_posX = tile.style.left;
+        var res = current_posX.split('px')[0];
+
+        current = eval(res);
+        tile.style.left = (current-113).toString()+"px";
+
+
+        var blank_position = Array.prototype.indexOf.call(game.tiles,game.blanktile);
+        var current_blank_posX = game.blanktile.style.left;
+        var res_blank = current_blank_posX.split('px')[0];
+        var current_blank = eval(res_blank);
+
+        game.blanktile.style.left = (current_blank+113).toString()+"px"; 
+
+        //game.tiles = Array.from(game.tiles);
+        game.tiles[blank_position] = game.tiles[position]
+        game.tiles[position] = game.blanktile;
+      }
+
+      function isTop(tile){
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+
+        blank_position = position-3;
+
+        if (Object.is(game.tiles[blank_position],game.blanktile)) {
+
+          return true;
+        }
+      }
+
+      function moveTop(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        var current_posY = tile.style.top;
+        var res = current_posY.split('px')[0];
+
+        current = eval(res);
+        tile.style.top = (current-113).toString()+"px";
+
+        var blank_position = Array.prototype.indexOf.call(game.tiles,game.blanktile);
+        var current_blank_posY = game.blanktile.style.top;
+        var res_blank = current_blank_posY.split('px')[0];
+        var current_blank = eval(res_blank);
+
+        game.blanktile.style.top = (current_blank + 113).toString()+"px";
+
+        game.tiles[blank_position] = game.tiles[position]
+        game.tiles[position] = game.blanktile;
+      }
+
+      function isDown(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        blank_position = position+3;
+
+        if (Object.is(game.tiles[blank_position],game.blanktile)) {
+
+          return true;
+      }}
+
+      function moveDown(tile){
+
+        var position = Array.prototype.indexOf.call(game.tiles,tile);
+        var current_posY = tile.style.top;
+        var res = current_posY.split('px')[0];
+
+        current = eval(res);
+        tile.style.top = (current+113).toString()+"px";
+
+        var blank_position = Array.prototype.indexOf.call(game.tiles,game.blanktile);
+        var current_blank_posY = game.blanktile.style.top;
+        var res_blank = current_blank_posY.split('px')[0];
+        var current_blank = eval(res_blank);
+
+        game.blanktile.style.top = (current_blank - 113).toString()+"px";
+
+        game.tiles[blank_position] = game.tiles[position]
+        game.tiles[position] = game.blanktile;
+      }
+
+      function isEqual(currentboard,winboard){
+
+        for(var i = 0; i<currentboard.length;i++){
+
+          if(currentboard[i]!=winboard[i]){
+
+            return false
+          }
+        }
+        return true;
+      }
+
+      function win() {
+
+        if(isEqual(game.tiles,game.winCondition)){
+
+          setTimeout(function(){ alert("You win!"); }, 500);
         }
       }
 
