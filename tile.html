@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Tile Game</title>
     <!-- <link rel="stylesheet" type="text/css" href="game.css"> -->
+    <script src="node_modules/confetti-js/dist/index.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
   <style>
@@ -504,6 +506,8 @@
 
   <body>
 
+    <canvas id="my-canvas"></canvas>
+
     <div id="heading_Container">
     <div id="changeimage"></div>
 
@@ -552,6 +556,9 @@
     </div>
 
     <script>
+
+      var confettiSettings = { target: 'my-canvas', "props":["square"], animate: true };
+      var confetti = new ConfettiGenerator(confettiSettings);
 
       var game = new Object();
 
@@ -897,7 +904,8 @@
 
         if(isEqual(game.tiles,game.winCondition)){
 
-          setTimeout(function(){ alert("You win!"); }, 500);
+          setTimeout(function(){confetti.render(); }, 100);
+          // setTimeout(function(){ alert("You win!"); }, 500);
         }
       }
 
