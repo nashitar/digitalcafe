@@ -565,6 +565,7 @@
       game.tiles = Array.from(document.getElementsByClassName('tile')); //is our board
       game.folders = ["dog"]; //while randoming pictures
       game.gameStarted = false;
+      game.gameFinished = false;
 
       game.img = {1:"1.jpg", //for setting the board up
               2:"2.jpg",
@@ -904,7 +905,11 @@
 
         if(isEqual(game.tiles,game.winCondition)){
 
-          setTimeout(function(){confetti.render(); }, 100);
+          if(game.gameFinished == false){
+            setTimeout(function(){confetti.render(); }, 100);
+            game.gameFinished = true;
+          }
+
           // setTimeout(function(){ alert("You win!"); }, 500);
         }
       }
