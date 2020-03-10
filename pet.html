@@ -759,16 +759,21 @@
   /*************************************************************************************************************************************/
   /*************************************************************************************************************************************/
 
-  function Word(text, size, color, xPos, yPos) {
+  function Word(text, size, xPos, yPos) {
     this.text = text;
     this.size = size;
-    this.color = color;
     this.xPos = xPos;
     this.yPos = yPos;
   }
 
   function createWord(){
-    wordsDisplayed.push(new Word())
+
+    let rndWord = Math.random() * allWords.length;
+    let rndSize = Math.random() * (30 - 20) + 20;
+    let rndX = Math.random() * window.innerWidth;
+    let rndY = Math.random() * window.innerHeight;
+
+    wordsDisplayed.push(new Word("\""+allWords[rndWond]+ "\"",rndSize+"px",rndX+"px",rndY+"px"));
   }
 
 
